@@ -13,7 +13,6 @@ import { useState } from 'react';
 const Home = () => {
   const [formData, setFormData] = useState({ name: "", option: "" });
   const [formErrors, setFormValidation] = useState({ name: "", option: "" });
-  const [submittedData, setSubmittedData] = useState<{ name: string; option: string } | null>(null);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -23,13 +22,6 @@ const Home = () => {
       option: formData.option ? "" : "Option is required",
     };
     setFormValidation(validateBlank);
-
-    const hasBlank = validateBlank.name !== "" || validateBlank.option !== "";
-    if (!hasBlank) {
-      setSubmittedData(formData);
-    } else {
-      setSubmittedData(null);
-    }
   };
 
   return (
@@ -55,7 +47,7 @@ const Home = () => {
               }
               value={formData.option}
             >
-              <SelectTrigger className="w-[180px]">
+              <SelectTrigger className="w-[240px]">
                 <SelectValue placeholder="Gender" />
               </SelectTrigger>
               <SelectContent>
@@ -74,15 +66,6 @@ const Home = () => {
           <Button type="submit" className="w-full">Submit</Button>
         </form>
       </div>
-
-      {/* Submitted Data Section */}
-      {submittedData && (
-        <div className="mt-6 w-full max-w-xl p-4 bg-muted border border-border rounded">
-          <h3 className="text-lg font-semibold text-foreground">Submitted Form Data:</h3>
-          <h3 className="text-foreground">Name: {submittedData.name}</h3>
-          <h3 className="text-foreground">Gender: {submittedData.option}</h3>
-        </div>
-      )}
     </div>
   );
 };
