@@ -25,6 +25,7 @@ const Task6 = () => {
 
   // Delete field
   const handleDeleteField = (index: number) => {
+    if (formFields.length === 1) return(alert("Only one field is left, cant delete !!"));
     const updatedFields = formFields.filter((_, i) => i !== index);
     const updatedErrors = formErrors.filter((_, i) => i !== index);
     setFormFields(updatedFields);

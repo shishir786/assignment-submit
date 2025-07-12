@@ -12,7 +12,7 @@ import {
 import { useState } from "react";
 
 
-const Task4 = () => {
+const Task7 = () => {
   const [formFields, setFormFields] = useState([{ name: "", option: "" }]);
   const [formErrors, setFormErrors] = useState([{ name: "", option: "" }]);
   const [submitted, setSubmitted] = useState(false);
@@ -25,6 +25,7 @@ const Task4 = () => {
 
   // Delete field
   const handleDeleteField = (index: number) => {
+    if (formFields.length === 1) return(alert("Only one field is left, cant delete !!"));
     const updatedFields = formFields.filter((_, i) => i !== index);
     const updatedErrors = formErrors.filter((_, i) => i !== index);
     setFormFields(updatedFields);
@@ -145,4 +146,4 @@ const Task4 = () => {
   );
 };
 
-export default Task4;
+export default Task7;
