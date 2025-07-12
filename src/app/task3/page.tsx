@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/select";
 import { useState } from 'react';
 
-const Home = () => {
+const Task3 = () => {
   const [formData, setFormData] = useState({ name: "", option: "" });
   const [formErrors, setFormValidation] = useState({ name: "", option: "" });
   const [submittedData, setSubmittedData] = useState<{ name: string; option: string } | null>(null);
@@ -19,7 +19,7 @@ const Home = () => {
     event.preventDefault();
 
     const validateBlank = {
-      name: formData.name ? "" : "Name is required",
+      name: formData.name.trim() ? "" : "Name is required",
       option: formData.option ? "" : "Option is required",
     };
     setFormValidation(validateBlank);
@@ -55,7 +55,7 @@ const Home = () => {
               }
               value={formData.option}
             >
-              <SelectTrigger className="w-[180px]">
+              <SelectTrigger className="w-[240px]">
                 <SelectValue placeholder="Gender" />
               </SelectTrigger>
               <SelectContent>
@@ -87,4 +87,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Task3;

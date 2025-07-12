@@ -18,7 +18,7 @@ const Home = () => {
     event.preventDefault();
 
     const validateBlank = {
-      name: formData.name ? "" : "Name is required",
+      name: formData.name.trim() ? "" : "Name is required",
       option: formData.option ? "" : "Option is required",
     };
     setFormValidation(validateBlank);
